@@ -1,6 +1,7 @@
 import mlflow
 import os
 
+# Cambio para activar integration pipe
 MLFLOW_URI =  os.getenv("MLFLOW_URI", "http://localhost:5000/")
 EXPERIMENT_NAME =  os.getenv("EXPERIMENT_NAME", "adult-income")
 mlflow.set_tracking_uri(MLFLOW_URI)
