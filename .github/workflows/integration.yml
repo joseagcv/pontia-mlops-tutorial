@@ -32,6 +32,10 @@ jobs:
           rm /tmp/census-income.zip
           echo "Dataset extracted to ./data/raw"
           find ./data/raw -maxdepth 2 -type f
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
       - name: Download Model
         run: |
           python scripts/download_model.py
@@ -41,10 +45,6 @@ jobs:
           AZURE_CLIENT_SECRET: ${{secrets.AZURE_CLIENT_SECRET}}
           MLFLOW_URI: ${{ vars.MLFLOW_URL }}
           EXPERIMENT_NAME: ${{ vars.EXPERIMENT_NAME }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
 
       - name: Run tests and save exit code
         id: tests
