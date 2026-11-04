@@ -21,7 +21,9 @@ ENV/
 .ipynb_checkpoints/
 *.nbconvert.ipynb
 
-
+# --- Data and models ---
+data/
+models/
 
 # --- Experiment configs ---
 *.tfvars
